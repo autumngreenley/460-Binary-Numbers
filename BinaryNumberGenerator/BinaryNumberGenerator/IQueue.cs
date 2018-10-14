@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BinaryNumberGenerator
 {
-    public interface IQueue
+    interface IQueue<T>
     {
         /// <summary>
         /// Add an element to the rear of the queue
@@ -25,6 +25,6 @@ namespace BinaryNumberGenerator
         /// Test if the queue is empty
         /// </summary>
         /// <returns>True if the queue is empty; otherwise false</returns>
-        Boolean IsEmpty();
+        bool IsEmpty();
     }
 }
