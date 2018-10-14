@@ -8,62 +8,62 @@ namespace BinaryNumberGenerator
 {
     public class LinkedQueue<T> : IQueue<T>
     {
-        private Node<T> Front;
-        private Node<T> Rear;
+        private Node<T> front;
+        private Node<T> rear;
 
         public LinkedQueue()
         {
-            Front = null;
-            Rear = null;
+            front = null;
+            rear = null;
         }
 
         //Push
-        public T Push(T Element)
+        public T Push(T element)
         {
-            if (Element == null)
+            if (element == null)
             {
                 //
             }
             if (IsEmpty())
             {
-                Node<T> Tmp = new Node<T>(Element, null);
-                Rear = Front = Tmp;
+                Node<T> tmp = new Node<T>(element, null);
+                rear = front = tmp;
             }else
             {
                 //General case
-                Node<T> Tmp = new Node<T>(Element, null);
-                Rear.Next = Tmp;
-                Rear = Tmp;
+                Node<T> tmp = new Node<T>(element, null);
+                rear.Next = tmp;
+                rear = tmp;
             }
-            return Element;
+            return element;
         }
 
         //Pop
         public T Pop()
         {
-            T Tmp = null;
+            T tmp = null;
             if(IsEmpty())
             {
                 //
             }
-            else if(Front == Rear)
+            else if(front == rear)
             {
-                Tmp = Front.Data;
-                Front = null;
-                Rear = null;
+                tmp = front.Data;
+                front = null;
+                rear = null;
             }
             else
             {
-                Tmp = Front.Data;
-                Front = Front.Next;
+                tmp = front.Data;
+                front = front.Next;
             }
-            return Tmp;
+            return tmp;
         }
 
         //IsEmpty
         public bool IsEmpty()
         {
-            if(Front==null && Rear==null)
+            if(front==null && rear==null)
             {
                 return true;
             }
