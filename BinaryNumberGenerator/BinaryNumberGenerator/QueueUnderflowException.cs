@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace BinaryNumberGenerator
 {
-    class QueueUnderflowException
+    class QueueUnderflowException : Exception
     {
-        //I'll get to this later I think
+        /// <summary>
+        /// Throws an underflow exception with no message
+        /// </summary>
+        public QueueUnderflowException()
+        {}
+
+        /// <summary>
+        /// Throws an underflow exception with a message
+        /// </summary>
+        /// <param name="message"></param>
+        public QueueUnderflowException(string message): base(message)
+        {}
     }
 }
