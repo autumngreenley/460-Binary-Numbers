@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace BinaryNumberGenerator
 {
-    class Node
+    public class Node<T>
     {
+        public T Data;
+        public Node<T> Next;
+
+        public Node(T Data, Note<T> Next)
+        {
+            this.Data = Data;
+            this.Next = Next;
+        }
     }
 }
