@@ -8,19 +8,37 @@ namespace BinaryNumberGenerator
 {
     public class Node<T>
     {
-        public T Data;
-        public Node<T> Next;
+        public T data;
+        public Node<T> next;
 
         /// <summary>
         /// Singly linked node object
         /// </summary>
-        /// <param name="Data">What's in the node</param>
-        /// <param name="Next">The next node in the linked list</param>
+        /// <param name="data">What's in the node</param>
+        /// <param name="next">The next node in the linked list</param>
         
-        public Node(T Data, Note<T> Next)
+        public Node(T data, Note<T> next)
         {
-            this.Data = Data;
-            this.Next = Next;
+            this.data = data;
+            this.next = next;
+        }
+
+        /// <summary>
+        /// Setter and getter for data
+        /// </summary>
+        public T Data
+        {
+            get { return data; }
+            set { data = value; }
+        }
+
+        /// <summary>
+        /// Setter and getter for next
+        /// </summary>
+        public Node<T> Next
+        {
+            get { return next; }
+            set { next = value; }
         }
     }
 }
