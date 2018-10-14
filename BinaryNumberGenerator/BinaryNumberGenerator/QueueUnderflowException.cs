@@ -17,7 +17,7 @@ namespace BinaryNumberGenerator
         /// <summary>
         /// Throws an underflow exception with a message
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">The message to show the user when you throw the error</param>
         public QueueUnderflowException(string message): base(message)
         {}
     }
