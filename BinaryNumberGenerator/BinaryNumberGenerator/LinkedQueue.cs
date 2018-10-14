@@ -41,7 +41,7 @@ namespace BinaryNumberGenerator
         // Pop
         public T Pop()
         {
-            T tmp = null;
+            T tmp = default(T);
             if(IsEmpty())
             {
                 throw new QueueUnderflowException("The queue was empty when pop was invoked.");

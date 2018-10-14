@@ -17,7 +17,7 @@ namespace BinaryNumberGenerator
         /// <param name="data">What's in the node</param>
         /// <param name="next">The next node in the linked list</param>
         
-        public Node(T data, Note<T> next)
+        public Node(T data, Node<T> next)
         {
             this.data = data;
             this.next = next;
