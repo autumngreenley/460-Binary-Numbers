@@ -20,11 +20,16 @@ namespace BinaryNumberGenerator
         *         100  101  110  111
         *          etc.
         * and then storing each "value" in a list as it is "visited".
-        */
+        **/
 
+        /// <summary>
+        /// As the name implies, generates a list of binary representations of decimal numbers
+        /// </summary>
+        /// <param name="n">The number of binary numbers to generate</param>
+        /// <returns>Returns a list of binary numbers</returns>
         static LinkedList<string> GenerateBinaryRepresentationList(int n)
         {
-            // Create an empty queue of strings with which to perform the traversal
+            // Create an empty queue of strings with which to perform the traversal.
             LinkedQueue<StringBuilder> q = new LinkedQueue<StringBuilder>();
 
             // A list for returning the binary values
@@ -32,27 +37,39 @@ namespace BinaryNumberGenerator
 
             if (n < 1)
             {
+                // Binary representations of negative numbers aren't supported.
+                // Returns an empty list.
                 return output;
             }
 
+            // Enqueue the first binary number.  Use a dynamic string to avoid string concat.
             q.Push(new StringBuilder("1"));
 
+            // BFS.
             while(n-- > 0)
             {
+                // Prints the front of the queue.
                 StringBuilder sb = q.Pop();
                 output.AddLast(sb.ToString());
 
+                // Makes a copy.
                 StringBuilder sbc = new StringBuilder(sb.ToString());
 
+                // Left child.
                 sb.Append('0');
                 q.Push(sb);
 
+                // Right child.
                 sbc.Append('1');
                 q.Push(sbc);
             }
             return output;
         }
 
+        /// <summary>
+        ///  Driver program to test above function
+        /// </summary>
+        /// <param name="args">The command line argument of a decimal int to make a binary list of</param>
         public static void Main(string[] args)
         {
             int n = 10;
@@ -71,6 +88,8 @@ namespace BinaryNumberGenerator
                 return;
             }
 
+            // Print it right justified.  Longest string is the last one.
+            // Print enough spaces to move it over the correct distance
             LinkedList<string> output = GenerateBinaryRepresentationList(n);
             int maxlength = output.Last().Length;
             foreach(string s in output)
@@ -81,13 +100,6 @@ namespace BinaryNumberGenerator
                 }
                 Console.WriteLine(s);
             }
-        }
-
-        // The code provided will print ‘Hello World’ to the console.
-        // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-        //Console.WriteLine("Hello World!");
-        //Console.ReadKey();
-            
-        
+        } 
     }
 }
